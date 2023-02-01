@@ -127,26 +127,25 @@ class _HomePageState extends State<HomePage> {
 
   Widget getSelectedWidget({required int index}) {
     Widget widget;
-    widget = const ListViewMain();
+    widget = ListViewMain();
     setState(() {
       switch (index) {
         case 0:
-          widget = const ListViewMain();
+          widget = ListViewMain();
 
           db.loadData();
           db.updateDatabase();
           db.loadData();
           break;
         case 1:
-          widget = const ProfilePage();
+          widget = ProfilePage();
           db.loadData();
 
           break;
         default:
-          // ignore: unused_label
           key:
           UniqueKey();
-          widget = const ListViewMain();
+          widget = ListViewMain();
           setState(() {
             db.updateDatabase();
             db.loadData();
