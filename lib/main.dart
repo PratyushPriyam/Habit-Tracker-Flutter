@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/OnBoardingScreen/onBoarding_screen.dart';
+import 'package:habit_tracker/SplashScreen/splash_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'Pages/HomePage.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.amber),
-      home: const HomePage(),
+      home: splash_screen(),
     );
   }
 }
