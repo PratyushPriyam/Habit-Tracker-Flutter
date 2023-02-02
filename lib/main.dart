@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/OnBoardingScreen/onBoarding_screen.dart';
-import 'package:habit_tracker/SplashScreen/splash_screen.dart';
+import 'package:habit_tracker/IntroductionScreens/OnBoardingScreen/onBoarding_screen.dart';
+import 'package:habit_tracker/IntroductionScreens/SplashScreen/splash_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'Pages/HomePage.dart';

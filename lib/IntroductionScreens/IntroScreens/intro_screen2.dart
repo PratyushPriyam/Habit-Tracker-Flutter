@@ -14,14 +14,8 @@ class IntroScreen2 extends StatelessWidget {
             Container(
                 height: MediaQuery.of(context).size.height / 2,
                 width: MediaQuery.of(context).size.width,
-                child: Lottie.asset("assets/loetteGifs/read.gif")),
-            Text(
-              '"Habits are the compound interest of self-improvement."',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
+                child: Lottie.network(
+                    "https://assets1.lottiefiles.com/packages/lf20_kzfpndct.json")),
           ],
         ),
       ),

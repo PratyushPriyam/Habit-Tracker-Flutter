@@ -4,7 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../IntroScreens/intro_screen1.dart';
 import '../IntroScreens/intro_screen2.dart';
 import '../IntroScreens/intro_screen3.dart';
-import '../Pages/HomePage.dart';
+import '../../Pages/HomePage.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
@@ -37,7 +37,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       _controller.jumpToPage(2);
                     },
@@ -50,11 +50,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
                     ),
                   ),
-                  SmoothPageIndicator(controller: _controller, count: 3),
+                  SmoothPageIndicator(
+                    controller: _controller,
+                    count: 3,
+                    effect: WormEffect(),
+                  ),
                   onlastPage
-                      ? GestureDetector(
+                      ? InkWell(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) {
                                 return const HomePage();
@@ -73,7 +77,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 fontWeight: FontWeight.bold),
                           ),
                         )
-                      : GestureDetector(
+                      : InkWell(
                           onTap: () {
                             _controller.nextPage(
                               duration: Duration(milliseconds: 400),
