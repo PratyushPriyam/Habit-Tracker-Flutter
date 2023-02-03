@@ -7,6 +7,7 @@ final _myBox = Hive.box("habit_Database");
 
 class HabitDatabase {
   List habitsList = [];
+  Map<DateTime, int> heatMapDataSet = {};
 
   // Initial default data.
   void createDefaultData() {
@@ -40,5 +41,62 @@ class HabitDatabase {
 
     // Update Universal habit list incase it ever changed.
     _myBox.put("CURRENT_HABIT_LIST", habitsList);
+
+    // Calculating habit completed percentage for each day.
+    habitCompletedPercentage();
+    // load heat map
+    loadHeatMap();
+  }
+
+  void habitCompletedPercentage() {
+    int countCompleted = 0;
+    for (int i = 0; i < habitsList.length; i++) {
+      if (habitsList[i][1] == true) {
+        countCompleted++;
+      }
+    }
+    // 1 signifies 1 decimal place.
+    String percentage = habitsList.isEmpty
+        ? "0.0"
+        : (countCompleted / habitsList.length).toStringAsFixed(1);
+
+    // key: "PERCENTAGE_SUMMARY_yyyymmdd"
+    // value: String of 1 decimal number between 0.0 and 1.0 inclusive.
+    _myBox.put("PERCENTAGE_SUMMARY_${todaysDateFormatted()}", percentage);
+  }
+
+  void loadHeatMap() {
+    DateTime startDate = createDateTimeObject(_myBox.get("START_DATE"));
+
+    // Count number of days in between.
+    int daysInBetween = DateTime.now().difference(startDate).inDays;
+
+    // Going from start date to today and add percentage to dataset.
+    for (int i = 0; i < daysInBetween + 1; i++) {
+      String yyyymmdd = convertDateTimeToString(
+        startDate.add(Duration(days: i)),
+      );
+
+      double strengthAsPercentage =
+          double.parse(_myBox.get("PERCENTAGE_SUMMARY_${yyyymmdd}") ?? "0.0");
+
+      // Splitting dateTime object inty yyyy, mm, dd.
+
+      //Year
+      int year = startDate.add(Duration(days: i)).year;
+
+      //Month
+      int month = startDate.add(Duration(days: i)).month;
+
+      //Day
+      int day = startDate.add(Duration(days: i)).day;
+
+      final percentageOfEachDay = <DateTime, int>{
+        DateTime(year, month, day): (10 * strengthAsPercentage).toInt(),
+      };
+
+      heatMapDataSet.addEntries(percentageOfEachDay.entries);
+      print(heatMapDataSet);
+    }
   }
 }

@@ -118,7 +118,7 @@ class _ListViewMainState extends State<ListViewMain> {
   Widget build(BuildContext context) {
     db.updateDatabase();
     db.loadData();
-    return new ListView.builder(
+    return ListView.builder(
         key: UniqueKey(),
         itemCount: db.habitsList.length,
         itemBuilder: (context, index) {

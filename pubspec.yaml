@@ -45,9 +45,9 @@ dependencies:
   lottie:
   internet_connection_checker:
   overlay_support:
-  flutter_heatmap_calendar: ^1.0.5
-  percent_indicator: ^4.2.2
-  animated_text_kit: ^4.2.2
+  flutter_heatmap_calendar:
+  percent_indicator:
+  animated_text_kit:
 
 dev_dependencies:
   flutter_test:

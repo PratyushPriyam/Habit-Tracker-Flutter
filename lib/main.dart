@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/IntroductionScreens/OnBoardingScreen/onBoarding_screen.dart';
 import 'package:habit_tracker/IntroductionScreens/SplashScreen/splash_screen.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:overlay_support/overlay_support.dart';
-
-import 'Pages/HomePage.dart';
 
 void main() async {
   await Hive.initFlutter();

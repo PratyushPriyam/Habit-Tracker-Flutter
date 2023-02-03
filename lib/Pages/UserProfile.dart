@@ -1,13 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/Pages/AboutUs.dart';
-import 'package:habit_tracker/Util/HeatMap.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import '../Data/habit_dataset.dart';
+import '../Util/HeatMap.dart';
 import '../Util/PercentageIndicator.dart';
 import '../Util/TextAnimation.dart';
-import 'HomePage.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
   const UserProfile({super.key});
+
+  @override
+  State<UserProfile> createState() => _UserProfileState();
+}
+
+class _UserProfileState extends State<UserProfile> {
+  HabitDatabase db = HabitDatabase();
+  final _myBox = Hive.box("Habit_Database");
+  void initState() {
+    // if there is no current habit list, then it is the 1st time ever opening the app
+    // then create default data
+    if (_myBox.get("CURRENT_HABIT_LIST") == null) {
+      db.createDefaultData();
+    }
+
+    // there already exists data, this is not the first time
+    else {
+      db.loadData();
+    }
+
+    // update the database
+    db.updateDatabase();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +75,10 @@ class UserProfile extends StatelessWidget {
             SizedBox(height: 20),
             Container(
                 // heat map implementation
-                child: Heat_map()),
+                child: Heat_Map(
+              datasets: db.heatMapDataSet,
+              startDate: _myBox.get("START_DATE"),
+            )),
             Container(
                 height: 200,
                 width: MediaQuery.of(context).size.width - 15,

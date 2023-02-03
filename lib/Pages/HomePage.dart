@@ -278,9 +278,7 @@ class _HomePageState extends State<HomePage> {
         case 0:
           widget = ListViewMain();
 
-          db.loadData();
           db.updateDatabase();
-          db.loadData();
           break;
         case 1:
           widget = UserProfile();
@@ -293,7 +291,6 @@ class _HomePageState extends State<HomePage> {
           widget = ListViewMain();
           setState(() {
             db.updateDatabase();
-            db.loadData();
           });
           break;
       }
