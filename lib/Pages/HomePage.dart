@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/Pages/AboutUs.dart';
 import 'package:habit_tracker/Pages/UserProfile.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:quickalert/models/quickalert_animtype.dart';
+import 'package:quickalert/quickalert.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../Data/habit_dataset.dart';
 import '../Util/my_alert_dialog_box.dart';
@@ -242,7 +245,19 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: [
               InkWell(
-                onTap: () => {print("Button Tapped")},
+                onTap: () => {
+                  QuickAlert.show(
+                      context: context,
+                      confirmBtnText: "Okay",
+                      confirmBtnColor: Colors.black,
+                      borderRadius: 30,
+                      title: "Hello 👋",
+                      animType: QuickAlertAnimType.slideInUp,
+                      text: "For any query or problems, "
+                          "Contact us at :  "
+                          "habittracker04@gmail.com",
+                      type: QuickAlertType.warning)
+                },
                 child: Container(
                   padding: EdgeInsets.only(right: 5),
                   child: Row(

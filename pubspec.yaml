@@ -48,6 +48,7 @@ dependencies:
   flutter_heatmap_calendar:
   percent_indicator:
   animated_text_kit:
+  quickalert:
 
 dev_dependencies:
   flutter_test:
