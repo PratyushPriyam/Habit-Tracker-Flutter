@@ -49,6 +49,7 @@ dependencies:
   percent_indicator:
   animated_text_kit:
   quickalert:
+  firebase_core: ^0.4.2+2
 
 dev_dependencies:
   flutter_test:
