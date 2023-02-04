@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracking_app/About_Us.dart';
 import 'package:habit_tracking_app/Heat_map.dart';
 import 'package:habit_tracking_app/Home_Screen.dart';
+import 'package:habit_tracking_app/Report_screen.dart';
 import 'package:habit_tracking_app/Text_animation.dart';
 import 'package:habit_tracking_app/percent_indicator.dart';
-
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({super.key});
@@ -13,6 +13,8 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        elevation: 5000,
+        backgroundColor: Color.fromARGB(211, 158, 158, 158),
         child: ListView(
           children: [
             Container(
@@ -34,8 +36,8 @@ class MyProfileScreen extends StatelessWidget {
                   child: Container(
                     height: 40,
                     decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.black, width: 3.5)),
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                     child: Center(
                         child: Text(
@@ -55,8 +57,8 @@ class MyProfileScreen extends StatelessWidget {
               title: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Colors.black, width: 3.5)),
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Center(
                     child: Text(
@@ -82,8 +84,8 @@ class MyProfileScreen extends StatelessWidget {
               title: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Colors.black, width: 3.5)),
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Center(
                     child: Text(
@@ -110,8 +112,8 @@ class MyProfileScreen extends StatelessWidget {
                 child: Container(
                   height: 40,
                   decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(color: Colors.black, width: 4)),
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Center(
                       child: Text(
@@ -127,6 +129,37 @@ class MyProfileScreen extends StatelessWidget {
                 },
               ),
             ),
+            ListTile(
+              title: InkWell(
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Center(
+                      child: Text(
+                    "Log out",
+                    style: TextStyle(fontSize: 20),
+                  )),
+                ),
+                onTap: () {
+                  // Navigator.push(
+                  //  // go to login page again * * *
+                  // );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 200,
+            ),
+            Container(
+              child: Center(
+                  child: Text(
+                'Terms of Service | Privacy Policy',
+                style: TextStyle(color: Colors.white),
+              )),
+            ),
           ],
         ),
       ),
@@ -139,7 +172,9 @@ class MyProfileScreen extends StatelessWidget {
         ),
         actions: [
           InkWell(
-            onTap: () => {print("Button Tapped")},
+            onTap: () => {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MyReport_Screen()))
+            },
             child: Container(
               padding: EdgeInsets.only(right: 5),
               child: Row(
@@ -217,15 +252,10 @@ class MyProfileScreen extends StatelessWidget {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20)),
-                        SizedBox(
-                          height:20
-                        ),
-
-
-                            Container(
-                              child:Percent_indicator(),
-                            ),
-
+                          SizedBox(height: 20),
+                          Container(
+                            child: Percent_indicator(),
+                          ),
                         ],
                       ),
                     ),
@@ -248,13 +278,12 @@ class MyProfileScreen extends StatelessWidget {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20)),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-
-                                Center(
-                                  child:MyAge(),
-                                )
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Center(
+                            child: MyAge(),
+                          )
                         ],
                       ),
                     ),

@@ -16,7 +16,7 @@ class _Percent_indicatorState extends State<Percent_indicator> {
       child: CircularPercentIndicator(
         radius: 60,
         animation: true,
-        animationDuration: 1000,
+        animationDuration: 2300,
         lineWidth: 15,
         percent: 0.3,
         progressColor: Color.fromARGB(255, 46, 146, 139),
