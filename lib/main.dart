@@ -4,13 +4,12 @@ import 'package:habit_tracker/login_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
-void main() async {
-  await Hive.initFlutter();
-  await Hive.openBox("Habit_Database");
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
