@@ -18,7 +18,7 @@ class Percent_indicator extends StatelessWidget {
         progressColor: Color.fromARGB(255, 46, 146, 139),
         backgroundColor: Color.fromARGB(255, 180, 236, 233),
         circularStrokeCap: CircularStrokeCap.round,
-        center: Text("30%",
+        center: Text("${percentageToday * 100}%",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
