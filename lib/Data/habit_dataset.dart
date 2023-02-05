@@ -8,6 +8,7 @@ final _myBox = Hive.box("habit_Database");
 class HabitDatabase {
   List habitsList = [];
   Map<DateTime, int> heatMapDataSet = {};
+  double strengthAsPercentage = 0;
 
   // Initial default data.
   void createDefaultData() {
@@ -77,7 +78,7 @@ class HabitDatabase {
         startDate.add(Duration(days: i)),
       );
 
-      double strengthAsPercentage =
+      strengthAsPercentage =
           double.parse(_myBox.get("PERCENTAGE_SUMMARY_${yyyymmdd}") ?? "0.0");
 
       // Splitting dateTime object inty yyyy, mm, dd.

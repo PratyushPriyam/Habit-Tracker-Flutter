@@ -103,7 +103,9 @@ class _UserProfileState extends State<UserProfile> {
                                   fontSize: 20)),
                           SizedBox(height: 20),
                           Container(
-                            child: Percent_indicator(),
+                            child: Percent_indicator(
+                              percentageToday: db.strengthAsPercentage,
+                            ),
                           ),
                         ],
                       ),
