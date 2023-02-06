@@ -3,6 +3,7 @@ import 'package:habit_tracking_app/About_Us.dart';
 import 'package:habit_tracking_app/Heat_map.dart';
 import 'package:habit_tracking_app/Home_Screen.dart';
 import 'package:habit_tracking_app/Report_screen.dart';
+
 import 'package:habit_tracking_app/Text_animation.dart';
 import 'package:habit_tracking_app/percent_indicator.dart';
 
@@ -173,7 +174,7 @@ class MyProfileScreen extends StatelessWidget {
         actions: [
           InkWell(
             onTap: () => {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyReport_Screen()))
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BugReport()))
             },
             child: Container(
               padding: EdgeInsets.only(right: 5),

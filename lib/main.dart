@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking_app/About_Us.dart';
 import 'package:habit_tracking_app/Heat_map.dart';
+import 'package:habit_tracking_app/Report_screen.dart';
 import 'package:habit_tracking_app/Text_animation.dart';
 import 'package:habit_tracking_app/percent_indicator.dart';
 import 'package:habit_tracking_app/My_Profile.dart';
@@ -8,6 +9,8 @@ import 'package:habit_tracking_app/My_Profile.dart';
 void main() {
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         
-        body: Container(child:MyProfileScreen(),),
+        body: Container(child:BugReport(),),
       )
     );
   }
