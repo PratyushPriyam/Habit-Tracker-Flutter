@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/IntroductionScreens/SplashScreen/splash_screen.dart';
-import 'package:habit_tracker/login_page.dart';
-import 'package:habit_tracker/main_page.dart';
+import 'package:habit_tracker/screens/login_page.dart';
+import 'package:habit_tracker/auth/main_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:firebase_core/firebase_core.dart';
