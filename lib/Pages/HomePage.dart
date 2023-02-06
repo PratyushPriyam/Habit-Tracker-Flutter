@@ -3,7 +3,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/Pages/AboutUs.dart';
+import 'package:habit_tracker/Pages/ReportScreen.dart';
 import 'package:habit_tracker/Pages/UserProfile.dart';
+import 'package:habit_tracker/Util/myDrawer.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quickalert/models/quickalert_animtype.dart';
 import 'package:quickalert/quickalert.dart';
@@ -102,126 +104,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                Container(
-                    height: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        image: DecorationImage(
-                            image: AssetImage("asset/Menu.png")),
-                        border: Border.all(
-                            color: Color.fromARGB(255, 70, 64, 2), width: 3),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    child: DrawerHeader(
-                        child: Text(
-                      "Menu",
-                      style: TextStyle(fontSize: 25),
-                    ))),
-                SizedBox(height: 17),
-                ListTile(
-                  title: InkWell(
-                      child: Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.black, width: 3.5)),
-                        ),
-                        child: Center(
-                            child: Text(
-                          "Home",
-                          style: TextStyle(fontSize: 20),
-                        )),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        );
-                      }),
-                ),
-                SizedBox(height: 5),
-                ListTile(
-                  title: Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.black, width: 3.5)),
-                    ),
-                    child: Center(
-                        child: Text(
-                      "Contact Us",
-                      style: TextStyle(fontSize: 20),
-                    )),
-                  ),
-                  onTap: () {
-                    final snackBar = SnackBar(
-                      content: const Text('+ 91 885336124'),
-                      backgroundColor: (Colors.black),
-                      duration: Duration(seconds: 7),
-                      action: SnackBarAction(
-                        label: 'OK',
-                        onPressed: () {},
-                      ),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                ),
-                SizedBox(height: 5),
-                ListTile(
-                  title: Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: Colors.black, width: 3.5)),
-                    ),
-                    child: Center(
-                        child: Text(
-                      "Email",
-                      style: TextStyle(fontSize: 20),
-                    )),
-                  ),
-                  onTap: () {
-                    final snackBar = SnackBar(
-                      content: const Text('Companyemail1991@gmail.com'),
-                      backgroundColor: (Colors.black),
-                      duration: Duration(seconds: 7),
-                      action: SnackBarAction(
-                        label: 'OK',
-                        onPressed: () {},
-                      ),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                ),
-                SizedBox(height: 5),
-                ListTile(
-                  title: InkWell(
-                    child: Container(
-                      height: 40,
-                      decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(color: Colors.black, width: 4)),
-                      ),
-                      child: Center(
-                          child: Text(
-                        "About Us",
-                        style: TextStyle(fontSize: 20),
-                      )),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => About_Us()),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+          drawer: MyDrawer(),
           bottomNavigationBar: CurvedNavigationBar(
             height: 50.0,
             backgroundColor: Colors.black,
@@ -250,12 +133,24 @@ class _HomePageState extends State<HomePage> {
                       context: context,
                       confirmBtnText: "Okay",
                       confirmBtnColor: Colors.black,
+                      cancelBtnText: "Facing a problem",
+                      cancelBtnTextStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
+                      showCancelBtn: true,
+                      onCancelBtnTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => BugReport()));
+                      },
                       borderRadius: 30,
                       title: "Hello 👋",
                       animType: QuickAlertAnimType.slideInUp,
-                      text: "For any query or problems, "
+                      text: "For any query, "
                           "Contact us at :  "
-                          "habittracker04@gmail.com",
+                          "habittracker04@gmail.com or write your "
+                          "problems at our at our portal "
+                          "by clicking on the red button",
                       type: QuickAlertType.warning)
                 },
                 child: Container(

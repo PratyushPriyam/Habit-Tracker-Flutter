@@ -12,7 +12,7 @@ class Percent_indicator extends StatelessWidget {
       child: CircularPercentIndicator(
         radius: 60,
         animation: true,
-        animationDuration: 1000,
+        animationDuration: 2300,
         lineWidth: 15,
         percent: percentageToday,
         progressColor: Color.fromARGB(255, 46, 146, 139),
