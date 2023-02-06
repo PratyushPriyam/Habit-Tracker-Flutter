@@ -81,6 +81,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderSide: BorderSide(color: Colors.white),
                           borderRadius: BorderRadius.circular(12),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.deepPurple,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                         hintText: 'Email',
                         fillColor: Colors.grey[200],
                         filled: true,
