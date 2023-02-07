@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/IntroductionScreens/SplashScreen/splash_screen.dart';
+import 'package:habit_tracker/Pages/HomePage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'Pages/AuthenticationPages/MainAuthentication.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Hive.initFlutter();
   await Hive.openBox("Habit_Database");
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return OverlaySupport.global(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.amber),
-        home: splash_screen(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.amber),
+      home: MainPage(),
     );
   }
 }

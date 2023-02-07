@@ -1,11 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:habit_tracker/Pages/AboutUs.dart';
 import 'package:habit_tracker/Pages/HomePage.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  MyDrawer({super.key});
 
   @override
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  signOut() async {
+    await _firebaseAuth.signOut();
+    print("Signed out");
+  }
+
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 5000,
@@ -138,11 +146,7 @@ class MyDrawer extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 )),
               ),
-              onTap: () {
-                // Navigator.push(
-                //  // go to login page again * * *
-                // );
-              },
+              onTap: signOut,
             ),
           ),
           SizedBox(
