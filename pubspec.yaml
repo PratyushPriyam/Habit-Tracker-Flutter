@@ -48,6 +48,10 @@ dependencies:
   percent_indicator:
   animated_text_kit:
   quickalert:
+  firebase_core: ^2.4.1
+  cloud_firestore: ^4.3.1
+  google_fonts:
+  firebase_auth: ^4.2.5
 
 dev_dependencies:
   flutter_test:
