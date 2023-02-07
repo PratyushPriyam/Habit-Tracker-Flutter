@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         
-        body: Container(child:BugReport(),),
+        body: Container(child:MyProfileScreen(),),
       )
     );
   }

@@ -16,7 +16,7 @@ class _BugReportState extends State<BugReport> {
       decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage("asset/Bug.png"))),
       child: Scaffold(
-        backgroundColor: Color.fromARGB(93, 158, 158, 158),
+        backgroundColor: Color.fromARGB(102, 158, 158, 158),
         body: Padding(
           padding: EdgeInsets.only(right: 20, left: 20, bottom: 95),
           child: Column(
@@ -25,13 +25,16 @@ class _BugReportState extends State<BugReport> {
               TextField(
                 controller: _textController,
                 decoration: InputDecoration(
+                  fillColor: Color.fromARGB(255, 231, 189, 62),
                   hintText: "Type the issue you are facing",
                   hintStyle: TextStyle(color: Colors.black ),
+                  filled: true,
                   border: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                 
                   ),
                   suffixIcon: IconButton(
+                    color: Colors.black,
                     onPressed: () {
                       _textController.clear();
                     },
@@ -47,7 +50,10 @@ class _BugReportState extends State<BugReport> {
                 onPressed: () {
                   setState(() {
                     user_post = _textController.text;
-                  });
+                  }
+                  );
+                  _textController.clear();
+
                 },
               )
             ],
