@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/Util/myDrawer.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -35,6 +36,7 @@ class _UserProfileState extends State<UserProfile> {
     super.initState();
   }
 
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +66,7 @@ class _UserProfileState extends State<UserProfile> {
                     Container(
                       margin: EdgeInsets.only(top: 3),
                       child: Text(
-                        "Pratham Chikara",
+                        user.email!,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 25,
