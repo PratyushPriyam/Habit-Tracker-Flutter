@@ -21,18 +21,15 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-              height: 200,
-              decoration: BoxDecoration(
-                  color: Colors.amber,
-                  image: DecorationImage(image: AssetImage("asset/Menu.png")),
-                  border: Border.all(
-                      color: Color.fromARGB(255, 70, 64, 2), width: 3),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: DrawerHeader(
-                  child: Text(
-                "Menu",
-                style: TextStyle(fontSize: 25),
-              ))),
+            height: 200,
+            decoration: BoxDecoration(
+                color: Colors.amber,
+                image: DecorationImage(
+                    image: AssetImage("assets/habit_tracker_icon.png")),
+                border:
+                    Border.all(color: Color.fromARGB(255, 70, 64, 2), width: 3),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+          ),
           SizedBox(height: 17),
           ListTile(
             title: InkWell(

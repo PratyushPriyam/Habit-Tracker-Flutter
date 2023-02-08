@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 class BugReport extends StatefulWidget {
   const BugReport({super.key});
@@ -17,7 +18,7 @@ class _BugReportState extends State<BugReport> {
           image:
               DecorationImage(image: AssetImage("assets/reportBugImage.png"))),
       child: Scaffold(
-        backgroundColor: Color.fromARGB(93, 158, 158, 158),
+        backgroundColor: Color.fromARGB(93, 250, 247, 247),
         body: Padding(
           padding: EdgeInsets.only(right: 20, left: 20, bottom: 95),
           child: Column(
@@ -26,8 +27,9 @@ class _BugReportState extends State<BugReport> {
               TextField(
                 controller: _textController,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
                   hintText: "Type the issue you are facing",
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.white),
                   border: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                   ),
@@ -47,6 +49,12 @@ class _BugReportState extends State<BugReport> {
                 onPressed: () {
                   setState(() {
                     user_post = _textController.text;
+                    const snackBar = SnackBar(
+                      content: Text('Posting Successful.'),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    ;
+                    _textController.clear();
                   });
                 },
               )

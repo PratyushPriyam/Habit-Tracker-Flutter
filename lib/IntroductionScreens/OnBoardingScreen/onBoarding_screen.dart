@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../Pages/AuthenticationPages/MainAuthentication.dart';
 import '../IntroScreens/intro_screen1.dart';
 import '../IntroScreens/intro_screen2.dart';
 import '../IntroScreens/intro_screen3.dart';
@@ -61,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return const HomePage();
+                                return const MainPage();
                               }),
                             );
                             _controller.nextPage(
