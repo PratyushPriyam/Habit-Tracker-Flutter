@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/Util/myDrawer.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../Data/habit_dataset.dart';
@@ -145,47 +144,6 @@ class _UserProfileState extends State<UserProfile> {
                 )),
             SizedBox(
               height: 20,
-            ),
-            Column(
-              children: [
-                Container(
-                  height: 90,
-                  width: MediaQuery.of(context).size.width - 25,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFffcb00),
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 90,
-                  width: MediaQuery.of(context).size.width - 25,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFffcb00),
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 90,
-                  width: MediaQuery.of(context).size.width - 25,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFffcb00),
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 90,
-                  width: MediaQuery.of(context).size.width - 25,
-                  decoration: BoxDecoration(
-                      color: Color(0xFFffcb00),
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                ),
-              ],
             ),
           ],
         ),

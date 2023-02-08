@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:habit_tracker/Pages/AboutUs.dart';
 import 'package:habit_tracker/Pages/HomePage.dart';
 
@@ -23,9 +22,9 @@ class MyDrawer extends StatelessWidget {
           Container(
             height: 200,
             decoration: BoxDecoration(
-                color: Colors.amber,
+                color: Colors.white,
                 image: DecorationImage(
-                    image: AssetImage("assets/habit_tracker_icon.png")),
+                    image: AssetImage("assets/imgDrawer.png"), scale: 0.5),
                 border:
                     Border.all(color: Color.fromARGB(255, 70, 64, 2), width: 3),
                 borderRadius: BorderRadius.all(Radius.circular(20))),
