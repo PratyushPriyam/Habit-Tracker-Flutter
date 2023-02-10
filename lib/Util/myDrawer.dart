@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/Pages/AboutUs.dart';
 import 'package:habit_tracker/Pages/HomePage.dart';
+import 'package:lottie/lottie.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({super.key});
@@ -20,14 +21,12 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            height: 200,
+            child: Lottie.asset("assets/Menu.json"),
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                    image: AssetImage("assets/imgDrawer.png"), scale: 0.5),
-                border:
-                    Border.all(color: Color.fromARGB(255, 70, 64, 2), width: 3),
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(400)),
           ),
           SizedBox(height: 17),
           ListTile(

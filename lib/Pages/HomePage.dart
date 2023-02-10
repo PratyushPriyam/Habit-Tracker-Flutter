@@ -123,7 +123,10 @@ class _HomePageState extends State<HomePage> {
             title: Container(
               child: Center(
                   child: Text(
-                "My Profile",
+                "Habit Tracker", style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               )),
             ),
             actions: [

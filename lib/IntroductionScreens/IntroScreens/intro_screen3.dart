@@ -13,11 +13,16 @@ class IntroScreen3 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text("Multitask efficiently",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  )),
               Container(
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width,
-                  child: Lottie.network(
-                      "https://assets7.lottiefiles.com/packages/lf20_xwdnka71.json")),
+                  child: Lottie.asset("assets/Multitasking.json")),
             ]),
       ),
     );

@@ -11,11 +11,17 @@ class IntroScreen2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text("Take full control of your life",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                )),
             Container(
-                height: MediaQuery.of(context).size.height / 2,
-                width: MediaQuery.of(context).size.width,
-                child: Lottie.network(
-                    "https://assets1.lottiefiles.com/packages/lf20_kzfpndct.json")),
+              height: MediaQuery.of(context).size.height / 2,
+              width: MediaQuery.of(context).size.width,
+              child: Lottie.asset("assets/Management.json"),
+            ),
           ],
         ),
       ),
