@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
 
+macos\firebase_app_id_file.json
 # IntelliJ related
 *.iml
 *.ipr
